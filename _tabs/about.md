@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 icon: fas fa-info-circle
-order: 1
+order: 5
 ---
 
 ![Alexander Marty: A student software developer](https://capsule-render.vercel.app/api?type=speech&height=300&color=gradient&text=Alexander%20Marty&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Student%20Software%20Developer)
