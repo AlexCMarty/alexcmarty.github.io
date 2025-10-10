@@ -24,39 +24,7 @@ This post was inspired by [3blue1brown's video](https://www.youtube.com/watch?v=
 
 The big question is, *how do we know how much one vector lies in the direction of another*? For example, consider the vectors $\vec{u}=(3,4)$ and $\vec{v}=(-1,1)$. Just looking at the numbers, are they pointing in more or less the same direction or different directions?
 
-<desmos-graph id="motivation" width="600px" height="600px" url="https://desmos.com/calculator/fczsrpeo75"></desmos-graph>
-
-<div id="calculator" style="width: 600px; height: 400px;"></div>
-
-  <script>
-    // Create the embedded calculator
-    const elt = document.getElementById("calculator");
-    const myCalculator = Desmos.GraphingCalculator(elt);
-
-    // The shared graph’s ID (from desmos.com/calculator/<ID>)
-    const sharedId = "fczsrpeo75";
-
-    // Fetch the JSON of that shared graph
-    fetch(`https://www.desmos.com/calculator/${sharedId}`, {
-      headers: {
-        "Accept": "application/json"
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("HTTP error " + response.status);
-        }
-        return response.json();
-      })
-      .then(json => {
-        const graphState = json.state;
-        // Load it into the embedded calculator
-        myCalculator.setState(graphState);
-      })
-      .catch(err => {
-        console.error("Could not load Desmos graph JSON:", err);
-      });
-  </script>
+<desmos-graph id="motivation" width="600px" height="600px" url="https://www.desmos.com/calculator/fczsrpeo75"></desmos-graph>
 
 It looks like the vectors are pointing away. But here they are pointing together.
 

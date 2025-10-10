@@ -9,57 +9,50 @@ class DesmosGraph extends HTMLElement {
   }
 
   connectedCallback() {
+    // Don't do anything when connected to DOM
+    // Only do something when url attribute is present.
+  }
+
+  async loadGraph(url, calculator) {
     // Shadow DOM breaks the desmos graph. Don't use shadow DOM.
-    let width;
-    if (this.hasAttribute('width')) {
-      width = this.getAttribute('width');
-    } else {
-      width = '600px';
-    }
 
-    let height;
-    if (this.hasAttribute('height')) {
-      height = this.getAttribute('height');
-    } else {
-      height = '600px';
-    }
+    let width = this.hasAttribute('width')
+      ? this.getAttribute('width')
+      : '600px';
+    let height = this.hasAttribute('height')
+      ? this.getAttribute('height')
+      : '600px';
 
-    // Make this spit out an empty graph for now.
     let calculatorRoot = document.createElement('div');
     calculatorRoot.setAttribute('style', `width: ${width}; height: ${height};`);
     this.appendChild(calculatorRoot);
 
-    this.calculator = Desmos.GraphingCalculator(calculatorRoot);
-    console.log('Here is the calculator!')
-    console.log(this.calculator);
-  }
+    calculator = Desmos.GraphingCalculator(calculatorRoot);
+    // Now there is just a blank calculator.
+    // Add the graph state.
 
-  async loadGraph(url) {
-    fetch('https://desmos.com/calculator/fczsrpeo75', {
-      headers: {
-        'Accept': 'application/json'
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('HTTP error ' + response.status);
-        }
-        return response.json();
-      })
-      .then(json => {
-        const graphState = json.state;
-        // Load it into the embedded calculator
-        console.log('AAAAAAAAAAAAAAAAAAAAAA', graphState);
-      })
-      .catch(err => {
-        console.error('Could not load Desmos graph JSON:', err);
+    try {
+      const response = await fetch(url, {
+        headers: {
+          Accept: 'application/json',
+        },
       });
-   
+
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const graph = await response.json();
+      let graphState = graph.state;
+      calculator.setState(graphState);
+    } catch (error) {
+      console.error(error.message);
+    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'url') {
-      this.loadGraph(newValue);
+      this.loadGraph(newValue, this.calculator);
     }
   }
 }
