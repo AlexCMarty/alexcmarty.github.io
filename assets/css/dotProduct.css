@@ -1,0 +1,5 @@
+desmos-graph > .desmos-button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
