@@ -4,6 +4,15 @@ date: 2025-10-7 15:00:00 -0400
 categories: [Mathematics]
 tags: [mathematics, desmos, linear algebra]
 ---
+<!-- Github Pages strips newlines or something when pushed so I need this magic incantation -->
+<!-- https://github.com/mathjax/MathJax/issues/2377 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+  MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+    data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
+  });
+});
+</script>
 <!-- Chirpy is supposed to support MathJax but apparently it's a headache to set up -->
 <!-- Someone collected all the difficutly regarding this: https://gist.github.com/matrix-morpheus/9080d5bad2386b13ff61ead0e5ada093 -->
 <!-- So I'm just dumping a script tag here and calling it a day! -->
