@@ -4,15 +4,6 @@ date: 2025-10-7 15:00:00 -0400
 categories: [Mathematics]
 tags: [mathematics, desmos, linear algebra]
 ---
-<!-- Github Pages strips newlines or something when pushed so I need this magic incantation -->
-<!-- https://github.com/mathjax/MathJax/issues/2377 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
-  MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
-    data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
-  });
-});
-</script>
 <!-- Chirpy is supposed to support MathJax but apparently it's a headache to set up -->
 <!-- Someone collected all the difficutly regarding this: https://gist.github.com/matrix-morpheus/9080d5bad2386b13ff61ead0e5ada093 -->
 <!-- So I'm just dumping a script tag here and calling it a day! -->
@@ -22,7 +13,7 @@ MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
         macros: { 
           vv: '\\vec{v}',
           vu: '\\vec{u}',
-          puv: 'P_{\\vec{v}} \\vec{u}', // read, "the projection of u onto v"
+          puv: 'P_{\\vec{v}} \\vec{u}',
           ihat: '\\hat{i}',
           jhat: '\\hat{j}',
           uhat: '\\hat{u}',
@@ -45,14 +36,14 @@ This post was inspired by [3blue1brown's video](https://www.youtube.com/watch?v=
 
 # Motivation
 
-The big question is, *how do we know how much one vector lies in the direction of another*? For example, consider the following example where three vectors are compared to $\vec{u}=(4,3)$. $\vec{v_1}$ is pointing in about the same direction, $\vec{v_2}$ is at $90^{\circ}$ to $\vec{u}$, and $\vec{v_3}$ is in a very different direction than $\vec{u}$. Click the buttons on the graph below to see.
+The big question is, *how do we know how much one vector lies in the direction of another*? For example, consider the following example where three vectors are compared to $\vec{u}=(4,3)$. $\vec{v_1}$ is pointing in about the same direction, $\vec{v_2}$ is at $90^{\circ}$ to $\vu$, and $\vec{v_3}$ is in a very different direction than $\vu$. Click the buttons on the graph below to see.
 
 <desmos-graph id="motivation" url="https://www.desmos.com/calculator/nzrgoe2gpk"></desmos-graph>
 
 Drawing the vectors out, it's clear that some have different directions. But how can we put numbers to this? That's the idea: quantify how much two vectors are pointing in the same direction.
 
 # Projecting onto a line
-The idea with this approach is that we will measure how much one vector lies in the direction of another. This geometrically looks like projecting one vector onto another. First consider the vector $\vv$. Now draw a number line that points in the same direction as $\vv$. This happens to lie on its span. Now, consider the vector $\vu$. Looking at the plane, we can draw a perpendicular line that projects $\vu$ onto the span of $\vv$. Let the projection of $\vu$ onto $\vv$ be $\puv$.
+The idea with this approach is that we will measure how much one vector lies in the direction of another. This geometrically looks like projecting one vector onto another. First consider the vector $\vv$. Now draw a number line that points in the same direction as $\vv$. This happens to lie on its span. Now, consider the vector $\vu$. Looking at the plane, we can draw a perpendicular line that projects $\vu$ onto the span of $\vv$. I will introduce a new notation to describe this. Let the projection of $\vu$ onto $\vv$ be $\puv$.
 
 
 > Note that while the number line lies on the span of $\vv$, the projections onto the number line are still real numbers in $\mathbb{R}$.
@@ -63,7 +54,7 @@ The whole point is that when $\vu$ and $\vv$ point in the about the same directi
 Notice that this defines a transformation (a function) from $\vu$ to a number on the number line. This transformation is $\mathbb{R}^2 \to \mathbb{R}$. It is also *linear*. But how? A neat (albeit not rigorous) way to tell if a transformation is linear to ask whether any straight line of evenly spaced dots remains straight and evenly spaced.
 
 
-Play around with the graph below to see why projections match the intuition and make sense to describe how much two vectors lie in the same direction.
+Play around with the graph below to see why projections match the intuition and why they make sense to describe how much two vectors lie in the same direction.
 
 <desmos-graph id="end-goal" url="https://www.desmos.com/calculator/gqfaesh2zb">
   <div class="desmos-button-container">
@@ -114,10 +105,10 @@ Play around with the graph below to see why projections match the intuition and 
   </div>
 </desmos-graph>
 
-The point of all this is that $\vu\rightarrow\puv$ is a linear transformation. Like any linear transformation, if we can figure out where $\ihat$ and $\jhat$ land on the number line, that matrix completely describes how to get $\puv$.
+The point of all this is that $\vu\rightarrow\puv$ is a *linear transformation*. Like any linear transformation, if we can figure out where $\ihat$ and $\jhat$ land on the number line, that matrix completely describes how to get $\puv$.
 
 # Unit Vectors
-Now we will find where $\ihat$ lands, which is the projection of $\ihat$ onto $\vu$. To begin, consider the unit vector $\uhat$. $\vu$ is any vector on the unit circle.
+To find $\puv$ we will first find where $\ihat$ lands, which is the projection of $\ihat$ onto $\vu$. To begin, consider the unit vector $\uhat$. $\vu$ is any vector on the unit circle.
 
 <desmos-graph id="unit-vector-symmetry" url="https://www.desmos.com/geometry/1nxjeivqwz"></desmos-graph>
 
