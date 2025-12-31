@@ -3,6 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
   "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "runArgs": ["-p", "4000:4000"], // I use Tailscale. Port must be exposed manually to preview website on my phone
   "customizations": {
     "vscode": {
       "settings": {
@@ -22,7 +23,9 @@
         "stylelint.vscode-stylelint",
         "yzhang.markdown-all-in-one",
         // Git
-        "mhutchie.git-graph"
+        "mhutchie.git-graph",
+        // I want spell check because I type out these blogs in VS code
+        "streetsidesoftware.code-spell-checker"
       ]
     }
   }

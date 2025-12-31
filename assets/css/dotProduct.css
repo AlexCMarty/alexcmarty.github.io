@@ -1,5 +1,30 @@
 desmos-graph > .desmos-button-container {
   display: flex;
-  flex-flow: row nowrap;
+  align-items: center;
   justify-content: center;
+}
+
+.desmos-button-container > button {
+  width: 30%;
+  margin: 0.25em 0.5em 0.25em 0.5em;
+  border-radius: 12px;
+}
+
+@media (prefers-color-scheme: light) {
+  background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  background-color: light-black;
+}
+
+desmos-graph > p {
+  text-align: center;
+  font-style: italic;
+}
+
+desmos-graph > p > span {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2em;
 }

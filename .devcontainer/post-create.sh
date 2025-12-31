@@ -16,3 +16,6 @@ sed -i -E "s/^(plugins=\()(git)(\))/\1\2 zsh-syntax-highlighting zsh-autosuggest
 
 # Avoid git log use less
 echo -e "\nunset LESS" >>~/.zshrc
+
+# Nice build alias
+echo -e "\nalias bundle-go='bundle exec jekyll serve --host=0.0.0.0 --force-polling --port=4000'" >>~/.zshrc

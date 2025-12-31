@@ -27,5 +27,6 @@
   "terminal.integrated.profiles.osx": {
     "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
   },
-  "workbench.colorTheme": "Default Light+"
+  "workbench.colorTheme": "Default Light+",
+  "cSpell.words": ["ihat", "stix"]
 }
