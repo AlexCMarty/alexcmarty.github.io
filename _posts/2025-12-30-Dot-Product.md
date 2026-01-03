@@ -3,13 +3,10 @@ title: The Dot Product through Linear Transformations
 date: 2025-12-30 19:00:00 -0500
 categories: [Mathematics]
 tags: [mathematics, desmos, linear algebra]
+math: true
 ---
 <!-- cSpell:words ihat, jhat, uhat, vhat, desmos, mathjax -->
 <!-- cSpell:ignoreRegExp (\${1,2})([\s\S]*?)\1 -->
-
-<!-- Chirpy is supposed to support MathJax but apparently it's a headache to set up -->
-<!-- Someone collected all the difficulty regarding this: https://gist.github.com/matrix-morpheus/9080d5bad2386b13ff61ead0e5ada093 -->
-<!-- So I'm just dumping a script tag here and calling it a day! -->
 
 <!-- Prod fails if there are any JS comments in a <script> tag here because it smushes it into one line. -->
 <!-- So only put comments in a JS file. -->
@@ -30,7 +27,6 @@ tags: [mathematics, desmos, linear algebra]
       svg: {fontCache: 'global'}
     };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=4f60de6866a94a18b9100d095623cc65"></script>
 <script src="{{ '/assets/js/dotProduct/desmosLoader.js' | relative_url }}" type="module"></script>
 
