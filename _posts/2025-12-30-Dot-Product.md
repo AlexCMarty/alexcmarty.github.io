@@ -36,12 +36,12 @@ math: true
 
 This post was inspired by [3blue1brown's video](https://www.youtube.com/watch?v=LyGKycYT2v0) on the dot product. Here I explain his derivation, adding interactive Desmos graph to further explore the ideas. 
 
-# Prerequisites
+## Prerequisites
 -  Understand vectors.
 -  Understand matricies as linear transformations.
 -  Previous dot product knowledge not required!
 
-# Motivation
+## Motivation
 
 The big question is, *how do we know how much one vector lies in the direction of another*? For example, consider the following example where three vectors are compared to $\vec{u}=(4,3)$. $\vec{v_1}$ is pointing in about the same direction, $\vec{v_2}$ is at $90^{\circ}$ to $\vv$, and $\vec{v_3}$ is in a very different direction than $\vv$.
 
@@ -56,7 +56,7 @@ The big question is, *how do we know how much one vector lies in the direction o
 
 Drawing the vectors out, it's clear that some have different directions. But how can we put numbers to this? That's the idea: quantify how much two vectors are pointing in the same direction.
 
-# Projecting onto a Line
+## Projecting onto a Line
 The idea with this approach is that we will measure how much one vector lies in the direction of another. This geometrically looks like projecting one vector onto another. First consider the vector $\vu$. Now draw a number line that points in the same direction as $\vu$. This lies on its span. Now, consider any vector in the plane. Let's call it $\vv$. Looking at the plane, we can draw a perpendicular line that projects $\vv$ onto the number line — the span of $\vu$. I will introduce a new notation to describe this. Let the function $P:\mathbb{R}^2 \to \mathbb{R}$ take in a vector in the plane and produce its position on the number line. Note that while the number line lies on the span of $\vu$, the projections onto the number line are still real numbers in $\mathbb{R}$.
 
 > For this article, $\vv$ refers to any vector in the plane and $\vu$ refers to the vector with a number line on it.
@@ -76,7 +76,7 @@ Notice that this defines a transformation (a function) from $\vv$ to a number on
 
 So, $P$ is a *linear transformation*. The input space is $\mathbb{R}^2$ and the output space is the number line along $\vu$. Like any linear transformation, if you can figure out where $\ihat$ and $\jhat$ land on the output space (the number line), that matrix completely defines $P$.
 
-# Unit Vectors and Projection
+## Unit Vectors and Projection
  To find $P$ we will first find where $\ihat$ lands when projected onto $\vu$. To begin, consider the *unit* vector $\uhat$. Let it be any vector on the unit circle. If you project $\ihat$ onto $\uhat$, it is the symmetrical to projecting $\uhat$ onto $\ihat$. This is clear in the below Desmos graph. The two projections make two congruent triangles. No matter where $\uhat$ is on the unit circle, the congruence is preserved. Drag $\uhat$ around in the below graph to see.
 
 <desmos-graph id="unit-vector-symmetry" data-url="https://www.desmos.com/geometry/6v3rfp0lao">
@@ -97,7 +97,7 @@ So you multiply the $x$ components and multiply the $y$ components then add them
   <p>Graph 4. Click "Project". $\ihat$ and $\jhat$ project onto $\uhat$, then add. This is the linear transformation $\begin{bmatrix} \uhat_{x} & \uhat_{y} \end{bmatrix}$!</p>
 </desmos-graph>
 
-# Generalizing to Alignment of Arbitrary Vectors
+## Generalizing to Alignment of Arbitrary Vectors
 On one hand, this answers the question from the beginning. This quantity is positive when the vectors point in the same direction, zero when they are perpendicular, and negative when they point in different directions. This measures their alignment, solving the problem set out in the beginning of this article. But when $\vu$ isn't a unit vector this still works, the number is just scaled. How much is it scaled by? What should it mean to take the dot product with a non-unit vector?
 
 I always wondered what the *value* of the dot product represented. I knew the value indicated alignment but didn't understand what the particular value meant. Now I see it related to projection. The dot product is equal to the magnitude of the unit projection scaled by the magnitude of the vector. A bit of algebra is the neatest way to explain this.
@@ -121,7 +121,7 @@ $$
 <p id="u-v-container"><span id="u-dot-v"></span>$\,=\,$<span id="mag-u"></span>$\,\cdot\,$<span id="uhat-dot-v"></span></p>
 </desmos-graph>
 
-# Conclusion
+## Conclusion
 The takeaways from all this are:
 - The relation between $\vu$ and the matrix $\begin{bmatrix} \vu_{x} & \vu_{y} \end{bmatrix}$.
 - The dot product can be thought of as a scaled projection.
