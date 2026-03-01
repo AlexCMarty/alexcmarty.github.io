@@ -19,3 +19,6 @@ echo -e "\nunset LESS" >>~/.zshrc
 
 # Nice build alias
 echo -e "\nalias bundle-go='bundle exec jekyll serve --host=0.0.0.0 --force-polling --port=4000'" >>~/.zshrc
+
+# I forgot my alias after not checking the source for 3 months lol
+echo "echo 'Aliases: \n\nbundle-go --> Live preview\n'" >>~/.zshrc
